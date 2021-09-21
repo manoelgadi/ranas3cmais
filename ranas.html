@@ -41,12 +41,15 @@
 		function mueverana(elemento){
 			//alert(elemento.id);
 			var id_num = parseInt(elemento.id,10);
-			var aux =  elemento.src;
-			elemento.src = document.getElementById(id_num-1).src;
-			document.getElementById(id_num-1).src = aux;
-			//elemento.width *= 2;
-			//elemento.height *= 2;
-			// Doblar el tamaño de la rana
+			if(elemento.src.includes("R.png")){
+				var aux =  elemento.src;
+				elemento.src = document.getElementById(id_num-1).src;
+				document.getElementById(id_num-1).src = aux;
+			} else if(elemento.src.includes("L.png")) {
+				var aux =  elemento.src;
+				elemento.src = document.getElementById(id_num+1).src;
+				document.getElementById(id_num+1).src = aux;			
+			}		
 		}
 	</script>
 
