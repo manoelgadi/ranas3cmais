@@ -1,3 +1,6 @@
+var movimientos = [];
+
+
 function mueverana(elemento){
 	//alert('cambiado 12:20');
 	var id_num = parseInt(elemento.id,10), destino = -1;
@@ -28,11 +31,13 @@ function mueverana(elemento){
 	}
 }
 
-function cambia_ranas(i,j){
+function cambia_ranas(i,j, loggea=1){
 	var aux =  document.getElementById(i).src;
 	document.getElementById(i).src = document.getElementById(j).src;
 	document.getElementById(j).src = aux;
-	//
+	if(loggea!=0){
+		movimientos.push([i,j]);
+	}
 }
 
 function aleatoriza_ranas(){
@@ -45,5 +50,8 @@ function aleatoriza_ranas(){
 }
 
 function deshace_ultimo(){
-	
+	if(movimientos.length > 0){
+		var ultimo = movimientos.pop();
+		cambia_ranas(ultimo[1],ultimo[0],loggea=0);
+	}
 }
