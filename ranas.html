@@ -1,77 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Ranas </title>
+	<title>Ranas</title>
 </head>
-	<h1> Juego ranas </h1>
-	<body>
-		<table border=1>
-			<tr>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>	
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>	
-			</tr>                                                                           
-			<tr>                                                                             
-				<td> <img src="./static/L.png" id="0" width="100" height ="107" onclick="mueverana(this);"></td>
-				<td> <img src="./static/L.png" id="1" width="100" height ="107" onclick="mueverana(this);"></td>	
-				<td> <img src="./static/L.png" id="2" width="100" height ="107" onclick="mueverana(this);"></td>
-				<td> <img src="./static/B.png" id="3" width="100" height ="107" onclick="mueverana(this);"></td>
-				<td> <img src="./static/R.png" id="4" width="100" height ="107" onclick="mueverana(this);"></td>
-				<td> <img src="./static/R.png" id="5" width="100" height ="107" onclick="mueverana(this);"></td>
-				<td> <img src="./static/R.png" id="6" width="100" height ="107" onclick="mueverana(this);"></td>	
-			</tr>                                                                           
-			<tr>                                                                            
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>	
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>
-				<td> <img src="./static/E.png" width="100" height ="107"></td>	
-			</tr>
-		</table>
-	</body>
-	<!-- COMENTARIOS: la contra en HTML -->
+<body>
+	<h1> Juego Ranas </h1>
+	<table border=1>
+		<tr>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+		</tr>                                                                           
+		<tr>                                                                            
+			<td> <img src="./static/L.png" id="0" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/L.png" id="1" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/L.png" id="2" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/B.png" id="3" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/R.png" id="4" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/R.png" id="5" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/R.png" id="6" width="100" height ="107" onclick="mueverana(this);"> </td>
+		</tr>                                                                           
+		<tr>                                                                            
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+			<td> <img src="./static/E.png" width="100" height ="107" onclick="mueverana(this);"> </td>
+		</tr>
+	</table>
+	<!-- -->
 	
-	<script type="text/javascript">
-	
-		function mueverana(elemento){
-//			alert(elemento.src); //4
-			var id_num = parseInt(elemento.id, 10), destino = -1;
 
-			if(elemento.src.includes('R.png')){
-				if(id_num-1>=0 && document.getElementById(id_num-1).src.includes('B.png')){
+	<script type="text/javascript">
+		function mueverana(elemento){
+			//alert('cambiado 11:21');
+			var id_num = parseInt(elemento.id,10), destino = -1;
+			if(elemento.src.includes("R.png")){
+				if(// id_num-1 >= 0 -- arregla la causa
+				document.getElementById(id_num-1) != null && // arregla el sintoma
+				document.getElementById(id_num-1).src.includes("B.png")){
 					destino = id_num-1;
-				} else if(id_num-2>=0 && document.getElementById(id_num-2).src.includes('B.png')){
+				} else if(//id_num-2 >= 0 -- arregla la causa 
+				document.getElementById(id_num-2) != null && // arregla el sintoma
+				document.getElementById(id_num-2).src.includes("B.png")){
 					destino = id_num-2;
 				}
-				if (destino>=0){
-					var aux = document.getElementById(destino).src;
-					document.getElementById(destino).src = elemento.src;
-					elemento.src=aux;	
+			} else if(elemento.src.includes("L.png")){
+				try {  // arregla el muerto - hace una cirurgia
+					if(document.getElementById(id_num+1).src.includes("B.png")){
+						destino = id_num+1;
+					} else if(document.getElementById(id_num+2).src.includes("B.png")){
+						destino = id_num+2;
+					}
+				} catch (err) {
+					//alert(err.message);
 				}
-			} else if(elemento.src.includes('L.png')){
-				if(id_num+1<7 && document.getElementById(id_num+1).src.includes('B.png')){
-					destino = id_num+1;
-				} else if(id_num+2<7 && document.getElementById(id_num+2).src.includes('B.png')){
-					destino = id_num+2;
-				}
-				if (destino>=0){
-					var aux = document.getElementById(destino).src;
-					document.getElementById(destino).src = elemento.src;
-					elemento.src=aux;	
-				}
-			}
-
-			// Falta implementar parte de la lógica.
-
-//			elemento.width *=2;
-//			elemento.height *=2;
+				
+			}	
 			
-		}		
+			if (destino>=0){
+				var aux =  elemento.src;
+				elemento.src = document.getElementById(destino).src;
+				document.getElementById(destino).src = aux;
+			}
+		}
 	</script>
+
+</body>
 </html>
+
