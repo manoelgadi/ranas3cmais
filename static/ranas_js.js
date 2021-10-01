@@ -93,8 +93,8 @@ function chequea_bloqueo(){
 
 
 function resuelve_hardcoded(){
-// EJERCICIO - HACER CON QUE LOS MOVIMIENTOS SE VEAN EN SEQUENCIA.
-// PISTA: USAR setTimeout( FUNCIÓN , TIEMPO) Y PASAR UNA FUNCIÓN ANONIMA (LAMBDA) DE JS: () => {}
+// EJERCICIO - HACER CON QUE LOS MOVIMIENTOS DE LAS RANAS SE VEAN EN SECUENCIA.
+// PISTA: USAR setTimeout( FUNCIÓN , TIEMPO) Y PASAR UNA FUNCIÓN ANÓNIMA (LAMBDA) DE JS: () => {}
 	cambia_ranas(2,3, loggea=1);
 	cambia_ranas(4,2, loggea=1);
 	cambia_ranas(5,4, loggea=1);
