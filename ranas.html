@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ranas</title>
-
+	<title> Ranas </title>
 </head>
-<body>
-	<h1> Juego Ranas </h1>
-	<table border=1>
-		<tr>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-		</tr>                                                                           
-		<tr>                                                                            
-			<td> <img src="./static/L.png" id="0" width="100" height ="107" onclick="mueverana(this);"> </td>
-			<td> <img src="./static/L.png" id="1" width="100" height ="107" onclick="mueverana(this);"> </td>
-			<td> <img src="./static/L.png" id="2" width="100" height ="107" onclick="mueverana(this);"> </td>
-			<td> <img src="./static/B.png" id="3" width="100" height ="107" onclick="mueverana(this);"> </td>
-			<td> <img src="./static/R.png" id="4" width="100" height ="107" onclick="mueverana(this);"> </td>
-			<td> <img src="./static/R.png" id="5" width="100" height ="107" onclick="mueverana(this);"> </td>
-			<td> <img src="./static/R.png" id="6" width="100" height ="107" onclick="mueverana(this);"> </td>
-		</tr>                                                                           
-		<tr>                                                                            
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-			<td> <img src="./static/E.png" width="100" height ="107"> </td>
-		</tr>
-	</table>
-	
-	<button type="submit" onclick="window.location.reload();"> Refrescar </button>
-	<button type="submit" onclick="aleatoriza_ranas();"> Aleatoriza </button>
-	<button type="submit" onclick="deshace_ultimo();"> Deshacer </button>	
-	<button type="submit" onclick="resuelve_hardcoded();"> Resuelve </button>	
-	<button type="submit" onclick="resuelve_ia();"> IA </button>	
-	<button type="submit" onclick="pista_proximo();"> Pista </button>	
-	
-	<div> CONTADOR: <div id="contador"> 0 </div> </div>
-	<p id="mensaje">  </p>
-	
-	<!-- <p id="blanco">  </p> -->
-	<script type="text/javascript" src = "./static/ranas_js.js"> </script>	
-</body>
-</html>
+	<h1> Juego ranas </h1>
+	<body>
+		<table border=1>
+			<tr>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>	
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>	
+			</tr>                                                                           
+			<tr>                                                                             
+				<td> <img src="./static/L.png" id="0" width="100" height ="107" onclick="mueverana(this);"></td>
+				<td> <img src="./static/L.png" id="1" width="100" height ="107" onclick="mueverana(this);"></td>	
+				<td> <img src="./static/L.png" id="2" width="100" height ="107" onclick="mueverana(this);"></td>
+				<td> <img src="./static/B.png" id="3" width="100" height ="107" onclick="mueverana(this);"></td>
+				<td> <img src="./static/R.png" id="4" width="100" height ="107" onclick="mueverana(this);"></td>
+				<td> <img src="./static/R.png" id="5" width="100" height ="107" onclick="mueverana(this);"></td>
+				<td> <img src="./static/R.png" id="6" width="100" height ="107" onclick="mueverana(this);"></td>	
+			</tr>                                                                           
+			<tr>                                                                            
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>	
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>
+				<td> <img src="./static/E.png" width="100" height ="107"></td>	
+			</tr>
+		</table>
+		<button type="submit" onclick="window.location.reload();"> Refresca </button>
+		<button type="submit" onclick="aleatoriza_ranas();"> Aleatoriza </button>
+		<button type="submit" onclick="deshace_ultimo();"> Deshacer </button>		
+		<button type="submit" onclick="resuelve_hardcoded();"> Resuelve </button>	
+		<button type="submit" onclick="resuelve_ia();"> IA </button>	
+		<button type="submit" onclick="pista_proximo();"> Pista </button>	
+		<p id="mensaje"> </p>
+		
+		<div> CONTADOR: <div id="contador"> 0 </div> </div>
+	<!-- COMENTARIOS: la contra en HTML -->
+	<script type = "text/javascript" src = "./static/ranas_js.js"> </script>
 
+	</body>
+	
+</html>
