@@ -32,7 +32,7 @@ function mueverana(elemento){
 	}
 }
 
-function cambia_ranas(i,j, loggea=1){
+function cambia_ranas(i,j, loggea=1, ia=false){
 	var aux =  document.getElementById(i).src;
 	document.getElementById(i).src = document.getElementById(j).src;
 	document.getElementById(j).src = aux;
@@ -42,8 +42,10 @@ function cambia_ranas(i,j, loggea=1){
 	} 
 	blanco= parseInt(i,10);	
 	//document.getElementById('blanco').innerHTML = blanco;
-	if (confirma_victoria() == false){
-		chequea_bloqueo();
+	if(ia==false){
+		if (confirma_victoria() == false){
+			chequea_bloqueo();
+		}
 	}
 }
 
@@ -138,4 +140,109 @@ function resuelve_hardcoded(){
 	cambia_ranas_retrasado(4,2, loggea=1);
 	cambia_ranas_retrasado(3,4, loggea=1);	
 	tiempo_para_esperar=0;
+}
+
+function pista_proximo(){
+	resuelve_ia(ia=false);
+}
+
+
+function resuelve_ia(ia=true){
+	var ranas = [];
+	for(i=0;i<7;i++){
+		if(document.getElementById(i).src.includes('L.png')){
+			ranas[i] = 'L';
+		} else if (document.getElementById(i).src.includes('R.png')){
+			ranas[i] = 'R';
+		} else {
+			ranas[i] = 'B';
+			blanco =i;
+		}
+	}
+	console.log(ranas);
+	console.log(blanco);
+	resuelve_recursiva(ranas, blanco,0,ia);	
+}
+
+function swap_ranas(r,i,j){
+	var aux = r[j];
+	r[j]= r[i];
+	r[i]= aux;
+}
+
+function comprueba_victoria_array(r){
+	if(r[0]=='R'&&r[1]=='R'&&r[2]=='R'&&r[3]=='B'){
+		return(true);
+	} else {
+		return(false);
+	}
+}
+
+function resuelve_recursiva(r, b, nr=0,ia=true){ // r = ranas, b=posición del blanco, nr=nivel de la recursión
+	if(comprueba_victoria_array(r)) {return(true);}
+	if(nr>15){return(false);} // no he encontrado la solución!
+	
+	if(b-1>=0 && r[b-1]=='L'){
+		swap_ranas(r,b,b-1);
+		if(resuelve_recursiva(r, b-1, nr+1,ia)){
+			if(ia){setTimeout(cambia_ranas,nr*1000,b,b-1,1,true);}
+			else if(nr==0){
+				setTimeout(cambia_ranas,0,b,b-1,0,true);
+				setTimeout(cambia_ranas,2000,b,b-1,0,true);
+			}
+			
+			return(true);
+		} else {
+			swap_ranas(r,b-1,b); // deshaciendo el cambio si no ha encontrado la solución
+		}
+	}
+
+	if(b-2>=0 && r[b-2]=='L'){
+		swap_ranas(r,b,b-2);
+		if(resuelve_recursiva(r, b-2, nr+1,ia)){
+			if(ia){setTimeout(cambia_ranas,nr*1000,b,b-2,1,true);}
+			else if(nr==0){
+				setTimeout(cambia_ranas,0,b,b-2,0,true);
+				setTimeout(cambia_ranas,2000,b,b-2,0,true);
+			}
+			
+			return(true);
+		} else {
+			swap_ranas(r,b-2,b); // deshaciendo el cambio si no ha encontrado la solución
+		}
+	}
+
+	if(b+1<7 && r[b+1]=='R'){
+		swap_ranas(r,b,b+1);
+		if(resuelve_recursiva(r, b+1, nr+1,ia)){
+			if(ia){setTimeout(cambia_ranas,nr*1000,b,b+1,1,true);}
+			else if(nr==0){
+				setTimeout(cambia_ranas,0,b,b+1,0,true);
+				setTimeout(cambia_ranas,2000,b,b+1,0,true);
+			}
+			
+			return(true);
+		} else {
+			swap_ranas(r,b+1,b); // deshaciendo el cambio si no ha encontrado la solución
+		}
+	}
+
+	if(b+2<7 && r[b+2]=='R'){
+		swap_ranas(r,b,b+2);
+		if(resuelve_recursiva(r, b+2, nr+1,ia)){ // he encontrado la solución
+			if(ia){setTimeout(cambia_ranas,nr*1000,b,b+2,1,true);}
+			else if(nr==0){
+				setTimeout(cambia_ranas,0,b,b+2,0,true);
+				setTimeout(cambia_ranas,2000,b,b+2,0,true);
+			}
+						
+			return(true);
+		} else {
+			swap_ranas(r,b+2,b); // deshaciendo el cambio si no ha encontrado la solución
+		}
+	}
+	
+	return(false); // bloqueado!
+	
+	
 }
